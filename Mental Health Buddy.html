@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>My HTML Page</h1>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Mental Health Buddy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-log {
+            text-align: left;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #fafafa;
+            height: 200px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+        .user-input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Mental Health Buddy</h1>
+        <div class="chat-log" id="chat-log">Hello! How can I assist you today?</div>
+        <input type="text" id="user-input" class="user-input" placeholder="Type here...">
+        <button onclick="processInput()">Send</button>
+    </div>
+
+    <script>
+        function processInput() {
+            let userInput = document.getElementById("user-input").value;
+            let chatLog = document.getElementById("chat-log");
+
+            // Display user message
+            chatLog.innerHTML += `<br><strong>You:</strong> ${userInput}`;
+
+            // Simple bot response logic
+            let botResponse = "I'm here to listen!";
+            if (userInput.toLowerCase().includes("stress")) {
+                botResponse = "I see you're stressed. How about trying some deep breathing?";
+            } else if (userInput.toLowerCase().includes("anxiety")) {
+                botResponse = "Anxiety is tough. How about a grounding exercise?";
+            } else if (userInput.toLowerCase().includes("help")) {
+                botResponse = "I'm always here for support. Let’s talk.";
+            }
+
+            // Display bot response
+            setTimeout(() => {
+                chatLog.innerHTML += `<br><strong>AI Buddy:</strong> ${botResponse}`;
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }, 1000); // Simulate a slight delay
+
+            // Clear input field
+            document.getElementById("user-input").value = '';
+        }
+    </script>
+</body>
+</html>
+<button onclick="startQuiz()">Take a Quick Wellness Quiz</button>
+<script>
+</body>
+</html>
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Buddy - Positive Talk Space</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #chat-container {
+            width: 80%;
+            max-width: 500px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #chat-log {
+            padding: 20px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        #user-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: calc(100% - 22px);
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-log">
+            <p><strong>AI Buddy:</strong> Hi! How can I assist you today? You can ask about stress, anxiety, sleep, or just chat with me!</p>
+        </div>
+        <div>
+            <input type="text" id="user-input" placeholder="Type here...">
+            <button onclick="handleInput()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function handleInput() {
+            const input = document.getElementById("user-input").value.toLowerCase();
+            let chatLog = document.getElementById("chat-log");
+
+            chatLog.innerHTML += `<br><strong>You:</strong> ${input}`;
+
+            let botResponse = "I didn't understand that. Could you please rephrase?";
+            if (input.includes("stress")) {
+                botResponse = "It sounds like you're feeling stressed. I recommend deep breathing or taking a short break to clear your mind.";
+            } else if (input.includes("anxiety")) {
+                botResponse = "Anxiety can be tough. Remember to focus on the present moment, and try grounding exercises to help calm down.";
+            } else if (input.includes("sleep")) {
+                botResponse = "If you're having trouble sleeping, try creating a bedtime routine and avoiding screens before bed.";
+            } else if (input.includes("help")) {
+                botResponse = "I'm here to help! You can ask me about stress, anxiety, sleep tips, or just chat!";
+            }
+            setTimeout(() => {
+                chatLog.innerHTML += `<br><strong>AI Buddy:</strong> ${botResponse}`;
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }, 1000);
+
+            // Clear input field
+            document.getElementById("user-input").value = '';
+        }
+        // Simple Wellness Quiz
+        function startQuiz() {
+            let quizSection = document.getElementById("chat-log");
+            quizSection.innerHTML = `
+                <p>How are you feeling today?</p>
+                <button onclick="quizAnswer('Good')">Good</button>
+                <button onclick="quizAnswer('Not great')">Not great</button>
+                <button onclick="quizAnswer('Stressed')">Stressed</button>
+            `;
+        }
+        function quizAnswer(answer) {
+            let chatLog = document.getElementById("chat-log");
+            chatLog.innerHTML += `<br><strong>Quiz:</strong> You answered: ${answer}`;
+            let botResponse = "Thank you for sharing. I suggest focusing on some calming activities.";
+            if (answer === 'Good') {
+                botResponse = "Great to hear! Keep up the positive energy!";
+            } else if (answer === 'Not great') {
+                botResponse = "I'm sorry to hear that. It may help to talk through what's on your mind.";
+            } else if (answer === 'Stressed') {
+                botResponse = "Stress can be tough. Try to take deep breaths or engage in a relaxing activity.";
+            }
+            setTimeout(() => {
+                chatLog.innerHTML += `<br><strong>AI Buddy:</strong> ${botResponse}`;
+                chatLog.scrollTop = chatLog.scrollHeight;
+            }, 1000);
+        }
+    </script>
+<script>
+   const responses = {
+       "stress": ["It sounds like you're feeling stressed. Try taking a deep breath or going for a short walk.", "Stress can be overwhelming. How about practicing mindfulness for 5 minutes?"],
+       "anxiety": ["Anxiety can make you feel uneasy. Try grounding yourself by focusing on the present moment.", "Take a moment to breathe deeply. Let’s focus on the now to reduce that anxiety."],
+       "motivation": ["Motivation often comes in waves. Break your tasks into smaller steps and celebrate small wins.", "You’ve got this! Staying motivated is easier when you focus on progress, not perfection."],
+       "burnout": ["It seems like you're experiencing burnout. Take some time to recharge, even if it's just for 5 minutes.", "Burnout is tough, but self-care is crucial. Make sure to set boundaries and get rest."]
+   };
+
+   function handleInput() {
+       const input = document.getElementById("user-input").value.toLowerCase();
+       let chatLog = document.getElementById("chat-log");
+
+       chatLog.innerHTML += `<br><strong>You:</strong> ${input}`;
+
+       let botResponse = "I'm sorry, I didn't quite catch that. Could you try rephrasing?";
+
+       // Check for matching keywords in user input
+       for (const key in responses) {
+           if (input.includes(key)) {
+               botResponse = responses[key][Math.floor(Math.random() * responses[key].length)];
+               updateProgress(key);
+               break;
+           }
+       }
+
+       setTimeout(() => {
+           chatLog.innerHTML += `<br><strong>AI Buddy:</strong> ${botResponse}`;
+           chatLog.scrollTop = chatLog.scrollHeight;
+       }, 1000);
+
+       document.getElementById("user-input").value = '';
+   }
+
+   function updateProgress(key) {
+       let progressKey = key + 'Count';
+       let currentCount = parseInt(localStorage.getItem(progressKey)) || 0;
+       currentCount++;
+       localStorage.setItem(progressKey, currentCount);
+
+       document.getElementById(`${key}-count`).innerText = `${capitalizeFirstLetter(key)} Discussions: ${currentCount}`;
+   }
+
+   function capitalizeFirstLetter(string) {
+       return string.charAt(0).toUpperCase() + string.slice(1);
+   }
+</script>
+<div id="chat-container">
+   <div id="chat-log">
+       <p><strong>AI Buddy:</strong> Hi! What's your name?</p>
+   </div>
+   <div>
+       <input type="text" id="user-input" placeholder="Type here...">
+       <button onclick="handleInput()">Send</button>
+   </div>
+   <div id="progress">
+       <p><strong>Your Progress:</strong></p>
+       <p id="stress-count">Stress Discussions: 0</p>
+       <p id="anxiety-count">Anxiety Discussions: 0</p>
+       <p id="motivation-count">Motivation Discussions: 0</p>
+       <p id="burnout-count">Burnout Discussions: 0</p>
+   </div>
+</div>
+<script>
+function handleInput() {
+   const input = document.getElementById("user-input").value.toLowerCase();
+   let chatLog = document.getElementById("chat-log");
+
+   chatLog.innerHTML += `<br><strong>You:</strong> ${input}`;
+
+   if (!userName) {
+       userName = input;
+       localStorage.setItem('userName', userName);
+       chatLog.innerHTML += `<br><strong>AI Buddy:</strong> Nice to meet you, ${userName}! How do you like to be supported—motivational, practical, or emotional advice?`;
+   } else if (!preferredSupport) {
+       preferredSupport = input;
+       localStorage.setItem('preferredSupport', preferredSupport);
+       chatLog.innerHTML += `<br><strong>AI Buddy:</strong> Great! I'll give you more ${preferredSupport} advice moving forward. What would you like to discuss today?`;
+   } else {
+       let botResponse = generateResponse(input);
+       setTimeout(() => {
+           chatLog.innerHTML += `<br><strong>AI Buddy:</strong> ${botResponse}`;
+           chatLog.scrollTop = chatLog.scrollHeight;
+       }, 1000);
+   }
+
+   document.getElementById("user-input").value = '';
+}
+
+function generateResponse(input) {
+   const responses = {
+       "stress": {
+           "motivational": ["You’ve overcome stress before, and you can do it again!", "Keep pushing forward, you’re doing great!"],
+           "practical": ["Try making a to-do list to tackle your tasks one at a time.", "Take a deep breath and organize your thoughts, one thing at a time."],
+           "emotional": ["It’s okay to feel stressed. Let’s talk through what’s causing it.", "I’m here for you. Sometimes, just talking helps relieve stress."]
+       },
+       "anxiety": {
+           "motivational": ["You have the strength to get through this anxiety!", "You’re stronger than this feeling."],
+           "practical": ["Try a breathing exercise: inhale for 4 seconds, hold for 4, and exhale for 4.", "Break down your concerns into smaller steps to make them more manageable."],
+           "emotional": ["Anxiety can feel overwhelming, but you're not alone. How can I support you?", "I'm here with you. Let's take this one moment at a time."]
+       }
+   };
+
+   let response = "I'm not sure I understand. Could you tell me more?";
+   let supportType = localStorage.getItem('preferredSupport') || 'motivational';
+
+   for (const key in responses) {
+       if (input.includes(key)) {
+           response = responses[key][supportType][Math.floor(Math.random() * responses[key][supportType].length)];
+           break;
+       }
+   }
+
+   return response;
+}
+// Update script to store more user data and preferences
+
+let userName = localStorage.getItem('userName') || '';
+let userMood = localStorage.getItem('userMood') || '';
+let preferredSupport = localStorage.getItem('preferredSupport') || 'motivational';  // default to motivational
+
+if (!userName) {
+   document.getElementById('chat-log').innerHTML += `<p><strong>AI Buddy:</strong> Please tell me your name.</p>`;
+} else {
+   document.getElementById('chat-log').innerHTML += `<p><strong>AI Buddy:</strong> Welcome back, ${userName}! How are you feeling today?</p>`;
+   askForMood();
+}
+
+function askForMood() {
+   if (!userMood) {
+       document.getElementById('chat-log').innerHTML += `<p><strong>AI Buddy:</strong> What's your mood today? (Happy, Sad, Anxious, etc.)</p>`;
+   } else {
+       document.getElementById('chat-log').innerHTML += `<p><strong>AI Buddy:</strong> How are you feeling today, ${userName}? Last time you felt ${userMood}. Let me know if things have changed.</p>`;
+   }
+}
+
+function handleInput() {
+   const input = document.getElementById("user-input").value.toLowerCase();
+   let chatLog = document.getElementById("chat-log");
+
+   chatLog.innerHTML += `<br><strong>You:</strong> ${input}`;
+
+   if (!userName) {
+       userName = input;
+       localStorage.setItem('userName', userName);
+       chatLog.innerHTML += `<br><strong>AI Buddy:</strong> Nice to meet you, ${userName}! How can I assist you today?`;
+       askForMood();
+   } else if (!userMood) {
+       userMood = input;
+       localStorage.setItem('userMood', userMood);
+       chatLog.innerHTML += `<br><strong>AI Buddy:</strong> Got it! You're feeling ${userMood}. What would you like to talk about today?`;
+   } else {
+       let botResponse = generateResponse(input);
+       setTimeout(() => {
+           chatLog.innerHTML += `<br><strong>AI Buddy:</strong> ${botResponse}`;
+           chatLog.scrollTop = chatLog.scrollHeight;
+       }, 1000);
+   }
+
+   document.getElementById("user-input").value = '';
+}
+
+function generateResponse(input) {
+   const responses = {
+       "stress": ["It sounds like you're feeling stressed. Take a moment to breathe deeply.", "Stress can be tough, but you can manage it step by step."],
+       "anxiety": ["Anxiety can make things feel overwhelming. Try focusing on something small that you can control.", "Let's work through this anxiety together. How about a grounding exercise?"],
+       "happy": ["That's wonderful! Keep that positive energy going.", "I'm glad to hear you're happy! What's been making you feel this way?"],
+       "sad": ["I'm sorry you're feeling sad. It's okay to take time for yourself.", "Sadness is a natural emotion, and I'm here for you if you'd like to talk more about it."]
+   };
+
+   let response = "I'm not sure I understand. Could you tell me more?";
+   
+   // Check for matching keywords and generate response based on user's mood and input
+   for (const key in responses) {
+       if (input.includes(key)) {
+           response = responses[key][Math.floor(Math.random() * responses[key].length)];
+           break;
+       }
+   }
+
+   return response;
+}
+@media only screen and (max-width: 600px) {
+   #chat-container {
+       width: 100%;
+       padding: 10px;
+   }
+   #chat-log {
+       height: 300px;
+       font-size: 14px;
+   }
+   input, button {
+       width: 100%;
+       padding: 8px;
+       font-size: 14px;
+   }
+}
